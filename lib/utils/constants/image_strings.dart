@@ -22,4 +22,12 @@ class BeatnikImages{
   static const promoBanner3 = "assets/banner/banner3.webp";
 
 
+  static const productImage1 = "assets/images/product/DarkMagenta.png";
+  static const productImage2 = "assets/images/product/Black_totatot.webp";
+  static const productImage3 = "assets/images/product/product_image3.webp";
+  static const productImage4 = "assets/images/product/productImage4.webp";
+
+
+
+
 }

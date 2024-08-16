@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class BeatnikSectionHeading extends StatelessWidget {
   const BeatnikSectionHeading({
     super.key,
-    this.buttonTitle = 'View all',
+    this.buttonTitle = 'View All',
     this.textColor,
     this.showActionButton = false,
     required this.title,
@@ -18,6 +18,7 @@ class BeatnikSectionHeading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
           title,
