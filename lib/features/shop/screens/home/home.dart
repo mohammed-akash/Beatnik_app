@@ -61,24 +61,26 @@ class HomeScreen extends StatelessWidget {
               )),
           const SizedBox(height: BeatnikSizes.spaceBtwItems),
           Padding(
-              padding: const EdgeInsets.all(BeatnikSizes.defaultSpace),
-              child:  BeatnikSectionHeading(
-                title: 'Top Products',
-                textColor: BeatnikColors.black,
-                showActionButton: true,
-              ),
+            padding: const EdgeInsets.all(BeatnikSizes.defaultSpace),
+            child: BeatnikSectionHeading(
+              title: 'Top Products',
+              textColor: BeatnikColors.black,
+              showActionButton: true,
+            ),
           ),
-
-          Container(
-            alignment: Alignment.center, // Center the entire container
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center, // Spread out the cards evenly
-                  children: [
-                    ProductCardVertical(
+          
+          Padding(
+            padding: const EdgeInsets.all(BeatnikSizes.defaultSpace),
+            child: GridView.builder(
+                itemCount: 4,
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisExtent: 350,
+                    mainAxisSpacing: BeatnikSizes.gridViewSpacing,
+                    crossAxisSpacing: BeatnikSizes.gridViewSpacing),
+                itemBuilder: (_, index) => const ProductCardVertical(
                       imageUrl: BeatnikImages.productImage1,
                       name: 'Beatnik Black Top & Pants Schiffli Womens Coords',
                       brand: 'Beatnik',
@@ -86,46 +88,7 @@ class HomeScreen extends StatelessWidget {
                       originalPrice: 5499.00,
                       discount: 499.00,
                       discountLabel: '25%',
-                    ),
-                    SizedBox(width: 16), // Increase gap between the cards
-                    ProductCardVertical(
-                      imageUrl: BeatnikImages.productImage2,
-                      name: 'Beatnik Black Top & Pants Schiffli Womens Coords',
-                      brand: 'Beatnik',
-                      price: 5499.00,
-                      originalPrice: 5499.00,
-                      discount: 499.00,
-                      discountLabel: '25%',
-                    ),
-                  ],
-                ),
-                SizedBox(height: 16), // Increase gap between rows
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center, // Spread out the cards evenly
-                  children: [
-                    ProductCardVertical(
-                      imageUrl: BeatnikImages.productImage3,
-                      name: 'Beatnik Black Top & Pants Schiffli Womens Coords',
-                      brand: 'Beatnik',
-                      price: 5499.00,
-                      originalPrice: 5499.00,
-                      discount: 499.00,
-                      discountLabel: '25%',
-                    ),
-                    SizedBox(width: BeatnikSizes.spaceBtwItems), // Increase gap between the cards
-                    ProductCardVertical(
-                      imageUrl: BeatnikImages.productImage4,
-                      name: 'Beatnik Black Top & Pants Schiffli Womens Coords',
-                      brand: 'Beatnik',
-                      price: 5499.00,
-                      originalPrice: 5499.00,
-                      discount: 499.00,
-                      discountLabel: '25%',
-                    ),
-                  ],
-                ),
-              ],
-            ),
+                    )),
           ),
           const SizedBox(height: BeatnikSizes.spaceBtwItems),
         ],

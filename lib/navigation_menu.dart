@@ -1,4 +1,5 @@
 import 'package:beatnik/features/shop/screens/home/home.dart';
+import 'package:beatnik/features/shop/screens/store/store.dart';
 import 'package:beatnik/utils/constants/colors.dart';
 import 'package:beatnik/utils/helpers/helper_funtions.dart';
 import 'package:flutter/cupertino.dart';
@@ -30,8 +31,6 @@ class NavigationMenu extends StatelessWidget {
             NavigationDestination(
                 icon: Icon(CupertinoIcons.compass), label: 'Explore'),
             NavigationDestination(
-                icon: Icon(CupertinoIcons.search), label: 'Search'),
-            NavigationDestination(
                 icon: Icon(CupertinoIcons.heart), label: 'Wishlist'),
             NavigationDestination(
                 icon: Icon(CupertinoIcons.person), label: 'Profile')
@@ -48,9 +47,7 @@ class NavigationController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
   final screens = [
     const HomeScreen(),
-    Container(
-      color: Colors.green,
-    ),
+    const StoreScreen(),
     Container(
       color: Colors.blue,
     ),

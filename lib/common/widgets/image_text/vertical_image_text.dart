@@ -10,13 +10,15 @@ class BeatnikVerticalImage extends StatelessWidget {
     required this.image,
     required this.title,
     this.textColor = BeatnikColors.white,
-    this.backgroundColor= BeatnikColors.white,
+    this.backgroundColor = BeatnikColors.white,
+    this.isCircular = false, // Add isCircular parameter
     this.onTap,
   });
 
   final String image, title;
   final Color textColor;
   final Color? backgroundColor;
+  final bool isCircular; // New boolean property
   final void Function()? onTap;
 
   @override
@@ -29,33 +31,40 @@ class BeatnikVerticalImage extends StatelessWidget {
         child: Column(
           children: [
             Container(
-                width: 56,
-                height: 56,
-                padding: const EdgeInsets.all(BeatnikSizes.sm),
-                decoration: BoxDecoration(
-                    color: backgroundColor ?? (dark ? BeatnikColors.black: BeatnikColors.white),
-                    borderRadius: BorderRadius.circular(56)),
-                child: Center(
+              width: 56,
+              height: 56,
+              padding: const EdgeInsets.all(BeatnikSizes.sm),
+              decoration: BoxDecoration(
+                color: backgroundColor ?? (dark ? BeatnikColors.black : BeatnikColors.white),
+                borderRadius: isCircular
+                    ? BorderRadius.circular(56) // Full circular if isCircular is true
+                    : BorderRadius.circular(8), // Slightly rounded otherwise
+              ),
+              child: Center(
+                child: ClipRRect(
+                  borderRadius: isCircular ? BorderRadius.circular(28) : BorderRadius.circular(0), // Clip the image
                   child: Image(
                     image: AssetImage(image),
                     fit: BoxFit.cover,
-                    color: BeatnikColors.dark,
                   ),
-                )),
+                ),
+              ),
+            ),
             const SizedBox(
               height: BeatnikSizes.spaceBtwItems / 2,
             ),
             SizedBox(
-                width: 55,
-                child: Text(
-                  title,
-                  style: Theme.of(context)
-                      .textTheme
-                      .labelMedium!
-                      .apply(color: BeatnikColors.white),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ))
+              width: 55,
+              child: Text(
+                title,
+                style: Theme.of(context)
+                    .textTheme
+                    .labelMedium!
+                    .apply(color: BeatnikColors.white),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
           ],
         ),
       ),

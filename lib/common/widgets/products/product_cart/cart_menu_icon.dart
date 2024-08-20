@@ -1,3 +1,4 @@
+import 'package:beatnik/utils/helpers/helper_funtions.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -5,20 +6,21 @@ import '../../../../utils/constants/colors.dart';
 
 class BeatnikCartIcon extends StatelessWidget {
   const BeatnikCartIcon({
-    super.key, required this.onPressed, required this.iconColor,
+    super.key, required this.onPressed, this.iconColor,
   });
 
   final VoidCallback onPressed;
-  final Color iconColor;
+  final Color? iconColor;
 
   @override
   Widget build(BuildContext context) {
+    final dark = BeatnikHelperFunctions.isDarkMode(context);
     return Stack(children: [
       IconButton(
           onPressed: () {},
-          icon: const Icon(
+          icon: Icon(
             CupertinoIcons.bag,
-            color: BeatnikColors.white,
+            color: iconColor,
           )),
       Positioned(
           right: 0,
@@ -26,7 +28,7 @@ class BeatnikCartIcon extends StatelessWidget {
             width: 18,
             height: 18,
             decoration: BoxDecoration(
-                color: BeatnikColors.black,
+                color: dark ? Colors.white : BeatnikColors.black,
                 borderRadius: BorderRadius.circular(100)),
             child: Center(
               child: Text(
@@ -35,7 +37,7 @@ class BeatnikCartIcon extends StatelessWidget {
                     .textTheme
                     .labelLarge!
                     .apply(
-                    color: BeatnikColors.white,
+                    color: dark ? Colors.black : BeatnikColors.white,
                     fontSizeFactor: 0.8),
               ),
             ),

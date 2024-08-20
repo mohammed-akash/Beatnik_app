@@ -27,7 +27,7 @@ class BeatnikSearchContainer extends StatelessWidget {
         padding: EdgeInsets.all(BeatnikSizes.md),
         decoration: BoxDecoration(
             color: showBackground ? dark ? BeatnikColors.dark: BeatnikColors.light : Colors.transparent,
-            borderRadius: BorderRadius.circular(BeatnikSizes.cardRadiuslg),
+            borderRadius: BorderRadius.circular(BeatnikSizes.cardRadiusLg),
             border: showBorder ? Border.all(color: BeatnikColors.grey) : null
         ),
         child: Row(

@@ -58,6 +58,7 @@ flutter:
     - assets/icons/
     - assets/images/on_boarding_images/
     - assets/images/product/
+    - assets/images/category/
     - assets/illustration/
     - assets/banner/
   uses-material-design: true
